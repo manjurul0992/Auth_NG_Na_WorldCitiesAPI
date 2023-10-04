@@ -1,0 +1,19 @@
+<div>
+  <nav class="d-flex justify-content-evenly">
+    <a class="btn btn-primary card" href="#">HOME</a>
+    <a class="btn btn-primary card" [routerLink]="['/COUNTRY']">COUNTRY</a>
+    <a class="btn btn-primary card" [routerLink]="['/CT']">CITIES</a>
+    <span class="separator"></span>
+    <a *ngIf="!isLoggedIn" mat-flat-button color="primary"
+       [routerLink]="['/login']">
+      Login
+    </a>
+    <a *ngIf="isLoggedIn" mat-flat-button color="primary"
+       (click)="onLogout()">
+      Logout
+    </a>
+  </nav>
+  <div>
+      
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h1 class="display-4">ADD COUNTRY INFORMATION</h1>
+      <form (ngSubmit)="inserCONTRY()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input name="name" type="text" [(ngModel)]="Condat.name" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="iso2">iso2</label>
+          <input name="iso2" type="text" [(ngModel)]="Condat.iso2" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="iso3">iso3</label>
+          <input name="iso3" type="text" [(ngModel)]="Condat.iso3" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="totCities">totCities</label>
+          <input name="totCities" type="text" [(ngModel)]="Condat.totCities" class="form-control" />
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-outline-info">SAVE</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-8">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>iso2</th>
+            <th>iso3</th>
+            <th>totCities</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="data && data.data">
+            <tr *ngFor="let d of data.data">
+              <td>{{ d.id }}</td>
+              <td>{{ d.name }}</td>
+              <td>{{ d.iso2 }}</td>
+              <td>{{ d.iso3 }}</td>
+              <td>{{ d.totCities }}</td>
+              <td>
+                <a (click)="popolatfpr(d)" class="btn btn-primary">EDIT</a>
+                <a (click)="onDEL(d.id)" class="btn btn-danger">DELETE</a>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
